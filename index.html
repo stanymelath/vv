@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <form id="form">
+      <input type="text" id="text" placeholder="Text"/>
+      <input type="number" id="fontsize" />
+      <button id="button">Generate PDF </button>
+      </form>
+      </body>
+      <script type="text/javascript" src="https://cdnjs.cloudfare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+
+      <script>
+        var form= document.getElementByID('form')
+        form.addEventListener('submit',function(event){
+          event.preventDefault()
+
+
+
+          var text=document.getElementById('text').value
+          var fontsize = document.getElementById('fontsize').value
+
+
+          var doc= new jsPDF()
+          doc.setFontsize(fontsize)
+          doc.text(text,20,20)
+          doc.save("output.pdf")
+
+
+
+        })
+        </script>
+
+
+  </body>
+</html>
